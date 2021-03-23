@@ -4,10 +4,14 @@ const {
 
 describe('array methods', () => {
     it('takes array and callback and returns new array of callback return values', () => {
-        const mockCallback = jest.fn();
+        const callback = (item) => {
+            return item ** 3;
+        }
 
-        const expected = mapArr(arr, mockCallback);
+        const mockArray = [1, 2, 3, 4];
 
-        expect(expected).toHaveReturnedTimes(arr.length);
+        const expected = mapArr(mockArray, callback);
+
+        expect(expected).toEqual([1, 8, 27, 64]);
     });
 });
