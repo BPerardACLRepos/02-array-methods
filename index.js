@@ -7,9 +7,16 @@ const mapArr = (arr, callback) => {
 }
 
 const filterArr = (arr, callback) => {
-
+    let filtered = []
+    for (let item of arr) {
+        if (callback(item)) {
+            filtered = [...filtered, item];
+        }
+    }
+    return filtered;
 }
 
 module.exports = {
-    mapArr
+    mapArr,
+    filterArr,
 };

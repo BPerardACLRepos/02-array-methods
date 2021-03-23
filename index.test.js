@@ -1,5 +1,6 @@
 const {
-    mapArr
+    mapArr,
+    filterArr,
 } = require('./index');
 
 describe('array methods', () => {
@@ -24,6 +25,6 @@ describe('array methods', () => {
 
         const expected = filterArr(mockArray, callback);
 
-        expect(expected).toEqual([33, 3, 12]);
+        expect(expected).toEqual([2, 5, 8]);
     });
 });
