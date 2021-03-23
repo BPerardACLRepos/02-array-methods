@@ -14,4 +14,16 @@ describe('array methods', () => {
 
         expect(expected).toEqual([1, 8, 27, 64]);
     });
+
+    it('takes array and callback and returns truthy values in new array', () => {
+        const callback = item => {
+            return item % 3 !== 0;
+        }
+
+        const mockArray = [2, 33, 5, 8, 3, 12];
+
+        const expected = filterArr(mockArray, callback);
+
+        expect(expected).toEqual([33, 3, 12]);
+    });
 });

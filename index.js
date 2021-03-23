@@ -6,6 +6,10 @@ const mapArr = (arr, callback) => {
     return mapped;
 }
 
+const filterArr = (arr, callback) => {
+
+}
+
 module.exports = {
     mapArr
 };
