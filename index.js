@@ -28,7 +28,16 @@ const findIndex = (arr, callback) => {
 }
 
 const reduceArr = (arr, callback, initialValue = null) => {
-
+    let product = initialValue;
+    for (let i = 0; i < arr.length; i++) {
+        if (!initialValue && i === 0) {
+            product = callback(arr[0], arr[1]);
+            i++;
+        } else {
+            product = callback(product, arr[i]);
+        }
+    }
+    return product;
 }
 
 module.exports = {
