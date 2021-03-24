@@ -41,7 +41,13 @@ const reduceArr = (arr, callback, initialValue = null) => {
 }
 
 const everyArr = (arr, callback) => {
-
+    let every = true;
+    for (let item of arr) {
+        if (!callback(item)) {
+            every = false;
+        }
+    }
+    return every;
 }
 
 module.exports = {
