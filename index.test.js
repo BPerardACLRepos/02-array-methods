@@ -1,6 +1,7 @@
 const {
     mapArr,
     filterArr,
+    findIndex,
 } = require('./index');
 
 describe('array methods', () => {
@@ -26,5 +27,22 @@ describe('array methods', () => {
         const expected = filterArr(mockArray, callback);
 
         expect(expected).toEqual([2, 5, 8]);
+    });
+
+    it('takes an array and callback and returns index of first item that returns truthy value, or -1 if no truthy value in array', () => {
+        const callback = item => {
+            return item.length > 4;
+        }
+
+        const mockArray = ['here', 'there', 'yollo', 'jeep'];
+
+        const expected = findIndex(mockArray, callback);
+
+        const secondMockArray = [1, 2, 3, 4];
+
+        const secondExpected = findIndex(secondMockArray, callback);
+
+        expect(expected).toEqual(1);
+        expect(secondExpected).toEqual(-1);
     });
 });
