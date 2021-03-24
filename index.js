@@ -40,9 +40,14 @@ const reduceArr = (arr, callback, initialValue = null) => {
     return product;
 }
 
+const everyArr = (arr, callback) => {
+
+}
+
 module.exports = {
     mapArr,
     filterArr,
     findIndex,
     reduceArr,
+    everyArr,
 };

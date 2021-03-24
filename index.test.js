@@ -3,6 +3,7 @@ const {
     filterArr,
     findIndex,
     reduceArr,
+    everyArr,
 } = require('./index');
 
 describe('array methods', () => {
@@ -60,5 +61,22 @@ describe('array methods', () => {
 
         expect(expected).toEqual(168);
         expect(secondExpected).toEqual(84);
+    });
+
+    it('takes an array and callback and returns true if all callback returns are truthy, otherwise returns false', () => {
+        const callback = item => {
+            return typeof item === 'string';
+        }
+
+        const mockArray = ['1', 'one', 'won', 'is the loneliest number']
+
+        const expected = everyArr(mockArray, callback);
+
+        const secondMockArray = ['!', '!', '!', 1]
+
+        const secondExpected = everyArr(secondMockArray, callback);
+
+        expect(expected).toEqual(true);
+        expect(secondExpected).toEqual(false);
     });
 });
