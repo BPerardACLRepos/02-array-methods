@@ -27,8 +27,13 @@ const findIndex = (arr, callback) => {
     return index;
 }
 
+const reduceArr = (arr, callback, initialValue = null) => {
+
+}
+
 module.exports = {
     mapArr,
     filterArr,
     findIndex,
+    reduceArr,
 };

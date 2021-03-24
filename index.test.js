@@ -2,6 +2,7 @@ const {
     mapArr,
     filterArr,
     findIndex,
+    reduceArr,
 } = require('./index');
 
 describe('array methods', () => {
@@ -44,5 +45,20 @@ describe('array methods', () => {
 
         expect(expected).toEqual(1);
         expect(secondExpected).toEqual(-1);
+    });
+
+    it('takes an array, callback, and optional initial value, accumulates the values, and returns the accumulator', () => {
+        const callback = (accumulator, item) => {
+            return accumulator * item;
+        }
+
+        const mockArray = [3, 4, 7, 2];
+
+        const expected = reduceArr(mockArray, callback);
+
+        const secondExpected = reduceArr(mockArray, callback, 0.5);
+
+        expect(expected).toEqual(168);
+        expect(secondExpected).toEqual(84);
     });
 });
